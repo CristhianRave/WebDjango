@@ -1,0 +1,9 @@
+#menu li>a,
+#menu form>button {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cards {
+    overflow: hidden;
+}
