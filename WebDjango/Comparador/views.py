@@ -10,7 +10,7 @@ def home(request):
                 {"": ""})
 
 
-def index(request):
+def cards(request):
 
     #leer archivo csv
     products = list()
@@ -21,7 +21,7 @@ def index(request):
         for fila in lector:
             products.append(fila)
 
-    return render(request, '../templates/index.html',
+    return render(request, '../templates/cards.html',
                   {"products": products})
 
 

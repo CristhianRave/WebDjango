@@ -2,10 +2,10 @@
 <div class="container-fluid  mt-3">
     <div class="row">
         {% for f in products %}
-        <div class="col-lg-3 col-md-12">
-            <div class="card mt-5 " style="width: 18rem;">
-                <img src="{{f.1}}" class="card-img-top " alt="Homero ">
-                <div class="card-body ">
+        <div class="col-lg-3 d-flex justify-content-around col-md-12">
+            <div class="card mt-5 " style="width: 18rem;height:30rem">
+                <img src="{{f.1}}" class="card-img mt-3 " alt="Homero ">
+                <div class="card-body" id="card-body">
                     <h5 class="card-title ">{{f.3}}</h5>
                     <p class="card-text ">{{f.2}}
                     </p>
@@ -16,5 +16,4 @@
         {% endfor %}
     </div>
 </div>
-
 {% endblock %}
