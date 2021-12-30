@@ -1,0 +1,14 @@
+<div>
+
+    {% if card.has_previous %}
+    <a href="?page=1">&laquo; Primer &raquo; </a> {% endif %} {% if card.has_next %}
+    <a href="?page={{ card.paginator.num_pages }}">
+        &laquo; ultima &raquo;
+    </a><br> {% endif %} {% if card.has_previous %}
+    <a href="?page={{ card.previous_page_number }}">
+        < </a>
+            {% endif %} {{ card.number}} de {{card.paginator.num_pages}} {% if card.has_next %}
+            <a href="?page={{ card.next_page_number }}">
+                >
+            </a><br> {% endif %}
+</div>
