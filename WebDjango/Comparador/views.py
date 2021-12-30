@@ -1,12 +1,10 @@
-import csv
+
 import requests
 from django.shortcuts import render
-import sqlite3
 from django.core.paginator import Paginator
-from django.contrib.auth.models import User
-from django.views.generic.list import ListView
 
 #Modelos
+from django.contrib.auth.models import User
 from .models import ModelCards
 
 
@@ -20,11 +18,11 @@ def home(request):
 
 def cards(request):
 
-    obj_list = ModelCards.objects.all()  # Todos los objetos de datos
+    obj_list = ModelCards.objects.all()  #Todos los elementos de la tabla ModelCards
     
-    #Paginator
+    #Sistema de paginacion
     paginator = Paginator(obj_list, 8)  # cantidad de articulos por pagina
-    page = request.GET.get('page')  # Recogemos el parametro 'page'
+    page = request.GET.get('page')  # Recogemos el parametro 'page' desde pagination.html
     page_card = paginator.get_page(page)  # Pasamos el numero de la pagina
 
     return render(request, 
@@ -62,7 +60,4 @@ def pruebas(request):
     return render(request, '../templates/cards.html',
                   {"products": products}) """
 
-"""     # Definir una instancia de objeto de paginación
-    page_obj = Paginator(obj_list, 10)
-    pages = page_obj.page(pid)  # Pase el número de páginas al objeto page_obj
-    # datos paginados de pages.object_list """
+

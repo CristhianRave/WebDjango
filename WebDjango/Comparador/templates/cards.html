@@ -1,12 +1,17 @@
 {% include 'home.html' %} {% include 'pagination.html' %} {% block content %}
 <div class="container-fluid  mt-3">
     <div class="row">
+        <!-- Generar cards con parametros de la bbdd -->
         {% for f in card %}
         <div class="col-lg-3 d-flex justify-content-around col-md-12">
-            <div class="card mt-5 " style="width: 18rem;height:30rem">
-                <img src="{{f.image}}" class="card-img mt-3 " alt="Homero ">
+            <div class="card mt-5 align-items-center" style="width:18rem;height:30rem">
+                <img src="{{f.image}}" class="mt-3" id="card_img" alt="Homero ">
                 <div class="card-body" id="card-body">
+                    {% if f.price != None %}
                     <h5 class="card-title ">{{f.price}}</h5>
+                    {% else %}
+                    <h5 class="card-title ">Free!!</h5>
+                    {% endif %}
                     <p class="card-text ">{{f.description}}
                     </p>
                     <a href="{{f.link}} " class="btn btn-primary ">Ver en Amazon</a>

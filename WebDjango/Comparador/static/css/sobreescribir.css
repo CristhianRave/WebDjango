@@ -4,6 +4,11 @@
     font-weight: bold;
 }
 
+#card_img {
+    max-width: 15rem !important;
+    max-height: 10rem !important;
+}
+
 #card-body {
     display: flex;
     flex-direction: column;
