@@ -1,4 +1,4 @@
-<nav aria-label="...">
+<nav aria-label="..." class="mt-4 ms-4">
     <ul class="pagination">
         {% if card.has_previous %}
         <li class="page-item ">
@@ -10,7 +10,7 @@
         </li>
         {% endif %}
         <li class="page-item ">
-            <span class="page-link">{{ card.number}} de {{card.paginator.num_pages}}</span>
+            <span class="page-link">{{ card.number}} of {{card.paginator.num_pages}}</span>
         </li> {% if card.has_next %}
         <li class="page-item">
             <a class="page-link" href="?page={{ card.next_page_number }}">>Next</a>
@@ -20,6 +20,5 @@
             <a class="page-link" href="?page={{ card.paginator.num_pages }}">End</a>
         </li>
         {% endif %}
-
     </ul>
 </nav>
