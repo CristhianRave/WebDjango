@@ -24,21 +24,23 @@
 
 
     <header class="p-3 bg-dark text-white d-flex justify-content-evenly align-items-baseline">
+        {% if user.id is None %}
         <div class="col-auto">
             <a class="btn btn-primary mb-3" href="#">
-                <!-- Si estamos identificados mostramos nombre-->
-                {% if user.id %} Hello, {{user|upper}} {% else %} PruebaNadie {% endif %}
+
+                <h3 class="title-not_session">No has iniciado sesion</h1>
             </a>
         </div>
-        <form class="row g-3 mt-3 d-flex justify-content-end">
+        <form class="row g-3 mt-3 d-flex justify-content-end" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
             <div class="col-auto">
-                <label for="exampleInputEmail1" class="visually-hidden">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="username" class="visually-hidden">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
             </div>
 
             <div class="col-auto">
-                <label for="inputPassword2" class="visually-hidden">Password</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                <label for="password" class="visually-hidden">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
 
             <div class="col-auto">
@@ -48,7 +50,13 @@
                 <a class="btn btn-primary mb-3" href="{% url 'pruebas' %}">Suscribe</a>
             </div>
         </form>
+        {% else %}
+
+        <h1>Hello, {{user|upper}}</h1>
+
+        {% endif %}
     </header>
+
 
 
     <!-- ---------------------------Menu--------------------------------- -->
