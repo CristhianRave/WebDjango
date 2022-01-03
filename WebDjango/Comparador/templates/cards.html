@@ -1,5 +1,7 @@
-{% include 'layout.html' %} {% include 'pagination.html' %} {% block cards %}
-<div class="container-fluid  mt-3">
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'pagination.html' %}
+
     <div class="row">
         <!-- Generar cards con parametros de la bbdd -->
         {% for f in card %}
@@ -20,5 +22,5 @@
         </div>
         {% endfor %}
     </div>
-</div>
-{% endblock %}
+
+{% endblock content %}

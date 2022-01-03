@@ -9,6 +9,7 @@ from django.contrib import messages
 #Models
 from django.contrib.auth.models import User
 from .models import ModelCards
+from .forms import RegisterForm
 
 # -----------------------------------------------------------
 
@@ -85,6 +86,31 @@ def logoutUser(request):
     return redirect('layout')
 
 
+
+
+# -----------------------------------------------------------
+
+def suscribeUser(request):
+
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        register_form = RegisterForm()
+
+        if request.method == 'POST':
+            register_form = RegisterForm(request.POST)
+
+            if register_form.is_valid():
+                register_form.save()
+
+                messages.success(request, 'Te has registrado!')
+
+                return redirect('/cards')
+
+        return render(request, '../templates/suscribe.html', {
+            'title': 'Registro',
+            'register_form': register_form,
+        })
 
 
 """ --------------------------lector de cvs---------------------------------------------- """

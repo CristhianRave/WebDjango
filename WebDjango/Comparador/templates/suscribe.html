@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} 
+{% block content %} 
+
+{% if register_form.errors %} 
+    {%for f in register_form %} 
+        {{f.label}} 
+        {{f}} 
+    {% endfor %} 
+{% endif %} 
+
+{% endblock content %}
+
