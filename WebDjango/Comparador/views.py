@@ -6,18 +6,28 @@ from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-#Modelos
+#Models
 from django.contrib.auth.models import User
 from .models import ModelCards
 
+# -----------------------------------------------------------
 
-
-def home(request):
+def layout(request):
 
 
     return render(request,
-                  '../templates/home.html')
+                  '../templates/layout.html')
 
+# -----------------------------------------------------------
+
+#Vista de pruebas
+def home(request):
+
+    return render(request,
+                  '../templates/home.html',
+                  {'': ''})
+
+# -----------------------------------------------------------
 
 def cards(request):
 
@@ -32,7 +42,9 @@ def cards(request):
                 '../templates/cards.html',
                   {'card': page_card})
 
+# -----------------------------------------------------------
 
+#Vista de pruebas
 def pruebas(request):
 
 
@@ -40,10 +52,14 @@ def pruebas(request):
                   '../templates/pruebas.html',
                   {'':''})
 
+# -----------------------------------------------------------
 
 def loginUser(request):
-    if request.user.is_authenticated:  # Redirigimos el acceso a algunas vistas si se estan
-        return redirect('/home')
+
+    #Si usuario no registrado trata de acceder
+    #  a urls registringidas redirigimos a layout
+    if request.user.is_authenticated:  
+        return redirect('/layout')
     else:
      if request.method == 'POST':
         username = request.POST.get('username')
@@ -59,12 +75,14 @@ def loginUser(request):
             messages.warning(request, 'No Te has identificado')
             return redirect('/pruebas')
 
+# -----------------------------------------------------------
+
 
 def logoutUser(request):
 
     logout(request)
 
-    return redirect('home')
+    return redirect('layout')
 
 
 
