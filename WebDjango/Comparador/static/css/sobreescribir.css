@@ -17,3 +17,12 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
+
+@media (max-width: 576px) { 
+    #header {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

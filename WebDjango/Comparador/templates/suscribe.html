@@ -1,12 +1,16 @@
-{% extends 'layout.html' %} 
-{% block content %} 
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
 
-{% if register_form.errors %} 
-    {%for f in register_form %} 
-        {{f.label}} 
-        {{f}} 
-    {% endfor %} 
-{% endif %} 
+<div class="container">
 
+    <form action="{% url 'suscribeUser' %}" method="post">
+        {% csrf_token %}
+
+        <!-- crispy incluye formato de bootstrap en Forms -->
+        {{register_form | crispy }}
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
 {% endblock content %}
-

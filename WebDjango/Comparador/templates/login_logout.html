@@ -1,35 +1,35 @@
-<header class="p-3 bg-dark text-white d-flex justify-content-evenly align-items-baseline">
+<header class="p-3 bg-dark text-white d-flex justify-content-end align-items-baseline" id="header">
     <!-- No logeados/registrados -->
     {% if user.id is None %}
 
-    <div class="col-auto">
+    <div class="col-sm-12 col-lg-4 ">
         <div class="btn btn-primary mb-3">
             <h3 class="title-not_session">No has iniciado sesion</h3>
         </div>
     </div>
-    <form class="row g-3 mt-3 d-flex justify-content-end" method="post" action="{% url 'login' %}">
+    <form class="row g-3 mt-3 " method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        <div class="col-auto">
+        <div class="col-sm-12 col-lg-3">
             <label for="username" class="visually-hidden">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Username" name="username">
         </div>
 
-        <div class="col-auto">
+        <div class="col-sm-12 col-lg-3">
             <label for="password" class="visually-hidden">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Password" name="password">
         </div>
 
-        <div class="col-auto">
+        <div class="col-sm-12 col-lg-2">
             <button type="submit" class="btn btn-primary mb-3">Identity</button>
         </div>
-        <div class="col-auto">
+        <div class="col-sm-12 col-lg-2">
             <a class="btn btn-primary mb-3" href="{% url 'suscribeUser' %}">Suscribe</a>
         </div>
     </form>
     <!-- Logeados correctamente -->
     {% else %}
 
-    <h1>Hello, {{user|upper}}</h1>
+    <div class="col-sm-12 col-lg-4 text-center fs-1">Hello, {{user|upper}}</div>
     <div class="col-auto">
         <a type="button" class="btn btn-primary mb-3" href="{% url 'logout' %}">Logout</a>
     </div>
