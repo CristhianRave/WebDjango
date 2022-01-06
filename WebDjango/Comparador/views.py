@@ -1,5 +1,5 @@
 
-import requests
+from urllib import request
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 
@@ -35,7 +35,7 @@ def cards(request):
     obj_list = ModelCards.objects.all()  #Todos los elementos de la tabla ModelCards
     
     #Sistema de paginacion
-    paginator = Paginator(obj_list, 12)  # cantidad de articulos por pagina
+    paginator = Paginator(obj_list, 10)  # cantidad de articulos por pagina
     page = request.GET.get('page')  # Recogemos el parametro 'page' desde pagination.html
     page_card = paginator.get_page(page)  # Pasamos el numero de la pagina
 
