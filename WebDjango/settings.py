@@ -38,12 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Comparador',
-<<<<<<< HEAD:WebDjango/settings.py
-    'crispy_forms',
-=======
     "crispy_forms",
     "crispy_bootstrap5",
->>>>>>> 6f89a9ff3a7ceab7a87f33b6787f4093d8d15336:WebDjango/WebDjango/settings.py
 
 ]
 
